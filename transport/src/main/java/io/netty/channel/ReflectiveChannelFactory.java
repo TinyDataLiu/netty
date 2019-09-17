@@ -33,8 +33,7 @@ public class ReflectiveChannelFactory<T extends Channel> implements ChannelFacto
         try {
             this.constructor = clazz.getConstructor();
         } catch (NoSuchMethodException e) {
-            throw new IllegalArgumentException("Class " + StringUtil.simpleClassName(clazz) +
-                    " does not have a public non-arg constructor", e);
+            throw new IllegalArgumentException("Class " + StringUtil.simpleClassName(clazz) + " does not have a public non-arg constructor", e);
         }
     }
 
