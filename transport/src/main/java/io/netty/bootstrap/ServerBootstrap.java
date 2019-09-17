@@ -44,11 +44,11 @@ import java.util.concurrent.TimeUnit;
 public class ServerBootstrap extends AbstractBootstrap<ServerBootstrap, ServerChannel> {
 
     private static final InternalLogger logger = InternalLoggerFactory.getInstance(ServerBootstrap.class);
-
     private final Map<ChannelOption<?>, Object> childOptions = new ConcurrentHashMap<ChannelOption<?>, Object>();
     private final Map<AttributeKey<?>, Object> childAttrs = new ConcurrentHashMap<AttributeKey<?>, Object>();
     private final ServerBootstrapConfig config = new ServerBootstrapConfig(this);
     private volatile EventLoopGroup childGroup;
+    /*请求处理器，专门用于处理请求的*/
     private volatile ChannelHandler childHandler;
 
     public ServerBootstrap() {
@@ -117,6 +117,7 @@ public class ServerBootstrap extends AbstractBootstrap<ServerBootstrap, ServerCh
     }
 
     /**
+     * 设置处理请求的Channel
      * Set the {@link ChannelHandler} which is used to serve the request for the {@link Channel}'s.
      */
     public ServerBootstrap childHandler(ChannelHandler childHandler) {

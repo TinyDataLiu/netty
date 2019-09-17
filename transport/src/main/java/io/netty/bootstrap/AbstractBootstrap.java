@@ -54,7 +54,7 @@ public abstract class AbstractBootstrap<B extends AbstractBootstrap<B, C>, C ext
     //相对于 ServerBootstrap
     volatile EventLoopGroup group;
 
-    /*channelFactory用于创建channle 调用super.channle(Class cla) 的时候初始化*/
+    /*channelFactory用于创建channle 调用super.channle(Class cla) 的时候初始化 NioServerSocketChannel.class*/
     @SuppressWarnings("deprecation")
     private volatile ChannelFactory<? extends C> channelFactory;
     private volatile SocketAddress localAddress;
